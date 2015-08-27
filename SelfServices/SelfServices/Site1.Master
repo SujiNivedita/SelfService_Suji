@@ -38,7 +38,7 @@
  </div>
     <p style="text-align:right">
      <span class="glyphicon glyphicon-log-out" aria-hidden="true">&nbsp; </span>
-        <a href="#" class="style2">Logout</a></p></div>
+        <a href="Logout.aspx" class="style2">Logout</a></p></div>
       <ul class="nav navbar-nav">
         <li class="active" style="font-size: large"><a href="#" class="style1">
             <strong class="style2">Order Status</strong></a></li>

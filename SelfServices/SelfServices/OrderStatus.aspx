@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="OrderStatus.aspx.cs" Inherits="SelfServices.OrderStatus" %>
 
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
 <%@ Register Src="~/faqControl.ascx" TagPrefix="uc1" TagName="faqControl" %>
@@ -33,6 +34,10 @@
                 //alert(dates);
                 //var dates4 = [$('#id4').text()];
                 //tips are optional but good to have
+                loadDates();
+                $("#ContentPlaceHolder1_duedate").html("Your due date is " + dates + ".");// = document.getElementById("").innerHtml + "hello";
+
+
                 var tips = ['some description', 'some other description'];
                 $("#datepicker").datepicker("refresh");
                 $("#datepicker").datepicker({
@@ -150,7 +155,7 @@
     
            <style type="text/css">
            .event a {
-            background-color: red !important;
+            background-color:mediumpurple !important;
             background-image :none !important;
             color:yellow;
             }  
@@ -172,7 +177,7 @@
   <div >
       <div style="background-color:#d9534f;color:#ffffff;border-color:#d43f3a;font-weight:bolder;float:left;width:60%">
         <br/>
-        <h2>Your Order Information</h2>
+        <h3>Your Order Information</h3>
         <br/>
         </div>
       <div class="jumbotron" style="float:left;width:60%">
@@ -195,8 +200,7 @@
     <p>
         &nbsp;</p>
     <div id="modal_dialog" style="display: none">
-        <p>
-            Your Due Date is ___________.</p>
+        <p id="duedate" runat="server"></p>
         <p>
             You Can change your Due date till a month from the order date.</p>
         <div id="datepicker" align="center">
@@ -206,7 +210,9 @@
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="btnCancelOrder" runat="server" class="btn btn-danger" Height="49px" Text="Cancel Order" Visible="false" Width="248px" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-   
+   <asp:Label ID="orderDateid" runat="server" Visible="false" Text=""></asp:Label>
+          <h3></h3>
+          <h3></h3>
           </h3></div>
                <div style="background-color: none !important; float: right; width: 35%;" class="jumbotron">
                    <uc1:faqControl ID="faqControl" runat="server" />
@@ -220,7 +226,7 @@
    <br />
             <div style="background-color:#d9534f;color:#ffffff;border-color:#d43f3a;font-weight:bolder;float:left;width:60%">
         <br/>
-        <h2>Service Address</h2>
+        <h3>Service Address</h3>
         <br/>
         </div>
      <div class="jumbotron" style="float:left;width:60%">
@@ -231,7 +237,7 @@
      </div>
              <div style="background-color:#d9534f;color:#ffffff;border-color:#d43f3a;font-weight:bolder;float:left;width:60%">
         <br/>
-        <h2>Service Details</h2>
+        <h3>Service Details</h3>
         <br/>
         </div>
     <div class="jumbotron" style="float:left;width:60%;color:saddlebrown;font-family:Cooper Black">
@@ -240,8 +246,9 @@
         
         <p style="color:saddlebrown;font-family:Cooper Black">
             <asp:Label ID="lbl_prodinfo" runat="server" Text=""></asp:Label>
-
-        <asp:GridView ID="products" runat="server" style="color:saddlebrown;font-family:Cooper Black"></asp:GridView></p>
+        
+           
+        <asp:GridView ID="products" runat="server" style="color:saddlebrown;border-style:hidden;border-color:InactiveBorder;font-family:Cooper Black"></asp:GridView></p>
 </div>
   
             </ContentTemplate>

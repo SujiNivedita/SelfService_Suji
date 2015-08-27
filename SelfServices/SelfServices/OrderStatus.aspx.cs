@@ -52,6 +52,7 @@ namespace SelfServices
                         btnyear.Text = instal_date.Year.ToString();
                         btnChangeDate.Visible = true;
                         btnCancelOrder.Visible = true;
+                        orderDateid.Text =order_date.ToString();
                         lbl_esti.Text = "Estimated Time :";
                         lbltime.Text = "1hr 15 mins";
                         
@@ -131,6 +132,7 @@ namespace SelfServices
                         btnyear.Text = instal_date.Year.ToString();
                         btnChangeDate.Visible = true;
                         btnCancelOrder.Visible = true;
+                        orderDateid.Text = order_date.ToString();
                         lbl_esti.Text = "Estimated Time :";
                         lbltime.Text = "1hrs 15 mins";
                        
@@ -151,6 +153,7 @@ namespace SelfServices
                         btnyear.Text = instal_date.Year.ToString();
                         btnChangeDate.Visible = true;
                         btnCancelOrder.Visible = false;
+                        orderDateid.Text = order_date.ToString();
                         lbl_esti.Text = "Estimated Time :";
                         lbltime.Text = "1hrs 15 mins";
                         
@@ -174,7 +177,7 @@ namespace SelfServices
                         btnCancelOrder.Visible = false;
                         //lbl_esti.Text = "Estimated Time :";
                         //lbltime.Text = "1hrs 15 mins";
-                        
+                        orderDateid.Text = order_date.ToString();
                         lblServ.Text = p.ServiceAddress;
                         
                         lbl_prodinfo.Text = "Included in this order ";

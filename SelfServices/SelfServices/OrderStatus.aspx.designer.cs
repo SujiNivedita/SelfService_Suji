@@ -112,6 +112,15 @@ namespace SelfServices {
         protected global::System.Web.UI.WebControls.Label lbltime;
         
         /// <summary>
+        /// duedate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl duedate;
+        
+        /// <summary>
         /// btnChangeDate control.
         /// </summary>
         /// <remarks>
@@ -128,6 +137,15 @@ namespace SelfServices {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelOrder;
+        
+        /// <summary>
+        /// orderDateid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label orderDateid;
         
         /// <summary>
         /// faqControl control.

@@ -73,6 +73,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Index.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="packages.config" />
     <Content Include="Site1.Master" />
     <Content Include="Content\bootstrap-theme.css.map" />
@@ -124,6 +126,20 @@
     </Compile>
     <Compile Include="faqControl.ascx.designer.cs">
       <DependentUpon>faqControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\BillJsonModel.cs" />
     <Compile Include="Models\Profile.cs" />

@@ -28,7 +28,7 @@ namespace SelfServices {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor LinkButton1;
         
         /// <summary>
         /// LinkButton3 control.
@@ -37,7 +37,7 @@ namespace SelfServices {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton3;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor LinkButton3;
         
         /// <summary>
         /// LinkButton2 control.
@@ -46,7 +46,7 @@ namespace SelfServices {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor LinkButton2;
         
         /// <summary>
         /// LinkButton4 control.
@@ -55,7 +55,7 @@ namespace SelfServices {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LinkButton4;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor LinkButton4;
         
         /// <summary>
         /// Label2 control.
@@ -128,6 +128,33 @@ namespace SelfServices {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnYes;
+        
+        /// <summary>
+        /// mpe2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ModalPopupExtender mpe2;
+        
+        /// <summary>
+        /// pnlPopup1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlPopup1;
+        
+        /// <summary>
+        /// btnYes1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnYes1;
         
         /// <summary>
         /// btnNo control.
