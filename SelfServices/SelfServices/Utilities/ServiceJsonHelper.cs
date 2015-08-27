@@ -25,8 +25,8 @@ namespace SelfServices.Utilities
         public static Profile PullProfile(string customerId)
         {
             Profile customProfile = null;
-            //string profileJson = GetJsonFromUrl(String.Format(@"{0}/{1}", PROFILE_PULL_URL, customerId));
-            string profileJson = File.ReadAllText(@"G:\profilepulljson.json.json");//give json file path here
+           // string profileJson = GetJsonFromUrl(String.Format(@"{0}/{1}", PROFILE_PULL_URL, customerId));
+           string profileJson = File.ReadAllText(@"G:\profile.json");//give json file path here
             if(!String.IsNullOrWhiteSpace(profileJson))
             {
                 ProfilePull fullProfile = GetObjectFromJson<ProfilePull>(profileJson);
@@ -53,7 +53,7 @@ namespace SelfServices.Utilities
 
         }
 
-        public static void CancelOrder(string orderId)
+        public static int CancelOrder(string orderId)
         {
             try
             {
@@ -61,11 +61,12 @@ namespace SelfServices.Utilities
                 {
                     client.Headers[HttpRequestHeader.ContentType] = "application/json";
                     client.UploadString(CANCEL_ORDER_URL, new JavaScriptSerializer().Serialize(new { orderId = orderId }));
+                    return 1;
                 }
             }
             catch(Exception e)
             {
-
+                return 0;
             }
             
         }

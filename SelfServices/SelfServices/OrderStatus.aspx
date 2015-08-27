@@ -5,7 +5,8 @@
 <%@ Register Src="~/faqControl.ascx" TagPrefix="uc1" TagName="faqControl" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-       
+
+    
    
 
     
@@ -23,8 +24,6 @@
             dates = [date1 + '/' + date2 + '/' + date3];
         };
         $(document).ready(function () {
-
-
             $(document).on('click', "#<%= btnChangeDate.ClientID %>", (function () {
                 //   alert("Test");
                   //var date1 = document.getElementById("<%= btnmonth.ClientID %>").value;
@@ -102,13 +101,13 @@
         });
      </script>
     
-     <style type="text/css">
+    <%-- <style type="text/css">
            .event a {
             background-color: red !important;
             background-image :none !important;
             color:yellow;
             }  
-     </style>
+     </style>--%>
    
 
     
@@ -129,13 +128,13 @@
       </ol>
       <div class="carousel-inner">
         <div class="item active">
-          <img alt="First slide"  src="images/im1.jpg"/>
+          <img alt="First slide"  src="images/im1.jpg" style="width:100%"/>
         </div>
         <div class="item">
-          <img alt="Second slide"  src="images/im3.jpg"/>
+          <img alt="Second slide"  src="images/im2.jpg" style="width:100%"/>
         </div>
         <div class="item">
-          <img alt="Third slide"  src="images/im3.jpg" />
+          <img alt="Third slide"  src="images/im3.jpg" style="width:100%"/>
       </div>
       <a data-slide="prev" href="#carousel-example-generic" class="left carousel-control">
         <span class="glyphicon glyphicon-chevron-left"></span>
@@ -145,7 +144,17 @@
       </a>
     </div>
     </div>
-          
+          <br />
+    <hr />
+    <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/start/jquery-ui.css" rel="stylesheet" type="text/css" />
+    
+           <style type="text/css">
+           .event a {
+            background-color: red !important;
+            background-image :none !important;
+            color:yellow;
+            }  
+     </style>
     
 
      
@@ -209,64 +218,31 @@
 
       </div>
    <br />
+            <div style="background-color:#d9534f;color:#ffffff;border-color:#d43f3a;font-weight:bolder;float:left;width:60%">
+        <br/>
+        <h2>Service Address</h2>
+        <br/>
+        </div>
      <div class="jumbotron" style="float:left;width:60%">
          <p style="color:saddlebrown;font-family:Cooper Black">
-             <asp:Label ID="lbl_serv" runat="server" Text=""></asp:Label><br />
+             
              <asp:Label ID="lblServ" runat="server" Text=""></asp:Label>
          </p>
      </div>
-    <div class="jumbotron" style="float:left;width:60%">
+             <div style="background-color:#d9534f;color:#ffffff;border-color:#d43f3a;font-weight:bolder;float:left;width:60%">
+        <br/>
+        <h2>Service Details</h2>
+        <br/>
+        </div>
+    <div class="jumbotron" style="float:left;width:60%;color:saddlebrown;font-family:Cooper Black">
         
-         <h3 style="color:saddlebrown;font-family:Cooper Black"><asp:Label ID="lbl_ordrinfo" runat="server" Text=""></asp:Label></h3>
+        
         
         <p style="color:saddlebrown;font-family:Cooper Black">
-            <asp:Label ID="lbl_prodinfo" runat="server" Text=""></asp:Label></p>
-        <asp:Repeater ID="Repeater1" runat="server">
-            <HeaderTemplate>
-<table style=" border:1px solid #df5015; width:500px" cellpadding="0">
-<tr style="background-color:#df5015; color:White">
-<td colspan="2">
-<b>Your Services</b>
-</td>
-</tr>
-</HeaderTemplate>
-<ItemTemplate>
-<tr style="background-color:#EBEFF0">
-<td>
-<table style="background-color:#EBEFF0;border-top:1px dotted #df5015; width:500px" >
-<tr>
-<td>
-Product:
-<asp:Label ID="lblSubject" runat="server" Text="prod" Font-Bold="true"/>
-</td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td>
-<asp:Label ID="lblComment" runat="server" Text=""/>
-</td>
-</tr>
-<tr>
-<td>
-<table style="background-color:#EBEFF0;border-top:1px dotted #df5015;border-bottom:1px solid #df5015; width:500px" >
-<tr>
-<td>Odered on: <asp:Label ID="lblUser" runat="server" Font-Bold="true" Text="order date"/></td>
-<td>Order by:<asp:Label ID="lblDate" runat="server" Font-Bold="true" Text="customer name"/></td>
-</tr>
-</table>
-</td>
-</tr>
-<tr>
-<td colspan="2">&nbsp;</td>
-</tr>
-</ItemTemplate>
-<FooterTemplate>
-</table>
-</FooterTemplate>
-        </asp:Repeater>
-     </div>
+            <asp:Label ID="lbl_prodinfo" runat="server" Text=""></asp:Label>
+
+        <asp:GridView ID="products" runat="server" style="color:saddlebrown;font-family:Cooper Black"></asp:GridView></p>
+</div>
   
             </ContentTemplate>
     </asp:UpdatePanel>

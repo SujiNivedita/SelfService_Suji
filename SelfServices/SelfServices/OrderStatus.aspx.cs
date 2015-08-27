@@ -16,7 +16,68 @@ namespace SelfServices
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["customerId"] = "VZ/1234";
+           
             if (Session["customerId"] != null)
+            {
+                if (!Page.IsPostBack)
+                {
+
+                    string cid = (string)Session["customerId"];
+                    p = Profile.GetUserProfile(cid);
+                    List<string> orderId = new List<string>();
+                    if (p != null)
+                    {
+                        foreach (OrderWrapper orders in p.Orders)
+                        {
+                            if (orders.Status != "cancelled")
+                            {
+                                orderId.Add(orders.Id);
+                            }
+
+                        }
+
+                        DropDownList1.DataSource = orderId;
+                        DropDownList1.DataBind();
+
+
+                        string order_id = p.Orders[0].Id;
+                        DateTime order_date = p.Orders[0].OrderDate;
+                        DateTime instal_date = Extensions.ToDateTime(p.Orders[0].InstallationDate.ToString());
+                        lbl_instal.Text = "Your order is scheduled installation on:";
+                        btnDay.Visible = true;
+                        btnDay.Text = instal_date.Day.ToString();
+                        btnmonth.Visible = true;
+                        btnmonth.Text = instal_date.Month.ToString();
+                        btnyear.Visible = true;
+                        btnyear.Text = instal_date.Year.ToString();
+                        btnChangeDate.Visible = true;
+                        btnCancelOrder.Visible = true;
+                        lbl_esti.Text = "Estimated Time :";
+                        lbltime.Text = "1hr 15 mins";
+                        
+                        lblServ.Text = p.ServiceAddress;
+                     
+                        lbl_prodinfo.Text = "Included in this order ";
+                        products.DataSource = p.Orders[0].Services;
+                        products.DataBind();
+
+                    }
+                }
+                
+            }
+            else
+            {
+                Response.Redirect("index.aspx");
+            }
+
+
+        }
+
+        protected void btnCancelOrder_Click(object sender, EventArgs e)
+        {
+
+           int i= ServiceJsonHelper.CancelOrder(DropDownList1.SelectedItem.Value);
+            if (i == 1)
             {
                 string cid = (string)Session["customerId"];
                 p = Profile.GetUserProfile(cid);
@@ -31,42 +92,15 @@ namespace SelfServices
                         }
 
                     }
+
                     DropDownList1.DataSource = orderId;
                     DropDownList1.DataBind();
-                    string order_id = p.Orders[0].Id;
-                    DateTime order_date = p.Orders[0].OrderDate;
-                    DateTime instal_date = Extensions.ToDateTime(p.Orders[0].InstallationDate.ToString());
-                    lbl_instal.Text = "Your order is scheduled installation on:";
-                    btnDay.Visible = true;
-                    btnDay.Text = instal_date.Day.ToString();
-                    btnmonth.Visible = true;
-                    btnmonth.Text = instal_date.Month.ToString();
-                    btnyear.Visible = true;
-                    btnyear.Text = instal_date.Year.ToString();
-                    btnChangeDate.Visible = true;
-                    btnCancelOrder.Visible = true;
-                    lbl_esti.Text = "Estimated Time :";
-                    lbltime.Text = "3hrs 45 mins";
-                    lbl_serv.Text = "Service Address";
-                    lblServ.Text=p.ServiceAddress;
-                    lbl_ordrinfo.Text = "Order Info";
-                    lbl_prodinfo.Text = "Included in this order ";
-                    Repeater1.DataSource = p.Orders[0].Services;
-                    Repeater1.DataBind();
-
+                }
+                else
+                {
+                    Response.Write("The order dint get cancelled!Please Try again later");
                 }
             }
-            else
-            {
-                Response.Redirect("index.aspx");
-            }
-
-
-        }
-
-        protected void btnCancelOrder_Click(object sender, EventArgs e)
-        {
-
         }
 
         protected void Button4_Click(object sender, EventArgs e)
@@ -84,7 +118,7 @@ namespace SelfServices
                 if (oid.Id == orderid)
                 {
                     string status = oid.Status;
-                    string order_date = oid.OrderDate;
+                    DateTime order_date = oid.OrderDate;
                    DateTime instal_date =p.Orders[0].InstallationDate;
                     if (status == "new" || status == "out provision")
                     {
@@ -99,12 +133,12 @@ namespace SelfServices
                         btnCancelOrder.Visible = true;
                         lbl_esti.Text = "Estimated Time :";
                         lbltime.Text = "1hrs 15 mins";
-                        lbl_serv.Text = "Service Address";
+                       
                         lblServ.Text=p.ServiceAddress;
-                        lbl_ordrinfo.Text = "Your Products Info";
+                       
                         lbl_prodinfo.Text = "Included in this order ";
-                        Repeater1.DataSource = oid.Services;
-                        Repeater1.DataBind();
+                        products.DataSource = oid.Services;
+                        products.DataBind();
                     }
                     if (status == "in provision")
                     {
@@ -119,12 +153,12 @@ namespace SelfServices
                         btnCancelOrder.Visible = false;
                         lbl_esti.Text = "Estimated Time :";
                         lbltime.Text = "1hrs 15 mins";
-                        lbl_serv.Text = "Service Address";
+                        
                         lblServ.Text = p.ServiceAddress;
-                        lbl_ordrinfo.Text = "Your Products Info";
+                       
                         lbl_prodinfo.Text = "Included in this order ";
-                        Repeater1.DataSource = oid.Services;
-                        Repeater1.DataBind();
+                        products.DataSource = oid.Services;
+                        products.DataBind();
                     }
                     if (status == "Completed")
                     {
@@ -138,14 +172,14 @@ namespace SelfServices
                         btnyear.Text = instal_date.Year.ToString();
                         btnChangeDate.Visible = false;
                         btnCancelOrder.Visible = false;
-                        lbl_esti.Text = "Estimated Time :";
-                        lbltime.Text = "1hrs 15 mins";
-                        lbl_serv.Text = "Service Address";
+                        //lbl_esti.Text = "Estimated Time :";
+                        //lbltime.Text = "1hrs 15 mins";
+                        
                         lblServ.Text = p.ServiceAddress;
-                        lbl_ordrinfo.Text = "Your Products Info";
+                        
                         lbl_prodinfo.Text = "Included in this order ";
-                        Repeater1.DataSource = oid.Services;
-                        Repeater1.DataBind();
+                        products.DataSource = oid.Services;
+                        products.DataBind();
                     }
                 }
                 //if (DropDownList1.SelectedItem.Value == "SampleId1")

@@ -139,15 +139,6 @@ namespace SelfServices {
         protected global::SelfServices.faqControl faqControl;
         
         /// <summary>
-        /// lbl_serv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_serv;
-        
-        /// <summary>
         /// lblServ control.
         /// </summary>
         /// <remarks>
@@ -155,15 +146,6 @@ namespace SelfServices {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblServ;
-        
-        /// <summary>
-        /// lbl_ordrinfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_ordrinfo;
         
         /// <summary>
         /// lbl_prodinfo control.
@@ -175,12 +157,12 @@ namespace SelfServices {
         protected global::System.Web.UI.WebControls.Label lbl_prodinfo;
         
         /// <summary>
-        /// Repeater1 control.
+        /// products control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater1;
+        protected global::System.Web.UI.WebControls.GridView products;
     }
 }

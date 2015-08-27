@@ -1,13 +1,19 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="faqControl.ascx.cs" Inherits="SelfServices.faqControl" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
-<%--<link rel="stylesheet" href="Content/bootstrap.css" />--%>
+<link rel="stylesheet" href="Content/bootstrap.css" />
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
 <style type="text/css">
     .btn-danger {
         color: #ffffff;
         background-color: #d9534f;
         border-color: #d43f3a;
     }  
+    .hide-block{
+    display: none;
+}
     .modalBackground
     {
         background-color: Black;
@@ -72,17 +78,20 @@
 </p>
 <p>
 
-    <asp:LinkButton ID="LinkButton1"  PostBackUrl="//www.youtube.com/embed/caELQ4juL0Y?rel=0&amp;autoplay=1" runat="server" >Troubleshoot your  FiOS Router</asp:LinkButton>
+    <asp:LinkButton ID="LinkButton1"  PostBackUrl="//www.youtube.com/embed/caELQ4juL0Y?rel=0&amp;autoplay=1"  runat="server" >Troubleshoot your  FiOS Router</asp:LinkButton>
 </p>
 <p>
-    <asp:LinkButton ID="LinkButton3"  PostBackUrl="//www.youtube.com/embed/NmqQsxqLqaU?rel=0&amp;autoplay=1" runat="server" >Improving your gaming connnection</asp:LinkButton>
+    <asp:LinkButton ID="LinkButton3"  PostBackUrl="//www.youtube.com/embed/NmqQsxqLqaU?rel=0&amp;autoplay=1"  runat="server" >Improving your gaming connnection</asp:LinkButton>
 </p>
 <p>
-    <asp:LinkButton ID="LinkButton2" PostBackUrl="//www.youtube.com/embed/a9q-tDRCTtc?rel=0&amp;autoplay=1" runat="server">How to create a secure password</asp:LinkButton>
+    <asp:LinkButton ID="LinkButton2" PostBackUrl="//www.youtube.com/embed/a9q-tDRCTtc?rel=0&amp;autoplay=1"   runat="server">How to create a secure password</asp:LinkButton>
 </p>
 <p>
-    <asp:LinkButton ID="LinkButton4"  PostBackUrl="//www.youtube.com/embed/affSl7XxBmE?list=PLooRvxIU8b2WAMTuKzQ2nxKxoa1q6qWv5?rel=0&amp;autoplay=1" runat="server">How to Program your FiOS TV Remote</asp:LinkButton>
+    <asp:LinkButton ID="LinkButton4"  data-theVideo="//www.youtube.com/embed/affSl7XxBmE?list=PLooRvxIU8b2WAMTuKzQ2nxKxoa1q6qWv5?rel=0&amp;autoplay=1"  runat="server">How to Program your FiOS TV Remote</asp:LinkButton>
 </p>
+
+  
+     
 <div class="jumbotron" style="height: 519px; width: 289px; ">
     <br />
     &nbsp;<asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Italic="True" Font-Names="Cooper Black" Font-Size="X-Large" ForeColor="#999966" Text="Tell us your Queries and Get Instant Answers"></asp:Label>
@@ -105,8 +114,8 @@
         Enter your Query:
     </div>
     <div class="body">
-        Mail Adress:<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        Query:<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+        Mail Adress:<asp:TextBox ID="mailAddr" runat="server"></asp:TextBox>
+        Query:<asp:TextBox ID="query" runat="server"></asp:TextBox>
     </div>
     <div class="footer" align="right">
         <asp:Button ID="btnYes" runat="server" Text="Submit" CssClass="yes" />

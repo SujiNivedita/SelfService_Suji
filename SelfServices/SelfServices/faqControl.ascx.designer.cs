@@ -103,22 +103,22 @@ namespace SelfServices {
         protected global::System.Web.UI.WebControls.Panel pnlPopup;
         
         /// <summary>
-        /// TextBox1 control.
+        /// mailAddr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox mailAddr;
         
         /// <summary>
-        /// TextBox2 control.
+        /// query control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox query;
         
         /// <summary>
         /// btnYes control.
